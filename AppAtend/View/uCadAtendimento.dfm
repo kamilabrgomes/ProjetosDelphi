@@ -1,6 +1,8 @@
-object frmAtendimentos: TfrmAtendimentos
+object frmCadAtendimentos: TfrmCadAtendimentos
   Left = 0
   Top = 0
+  Align = alClient
+  AutoSize = True
   Caption = 'Atendimentos'
   ClientHeight = 517
   ClientWidth = 754
@@ -13,6 +15,7 @@ object frmAtendimentos: TfrmAtendimentos
   FormStyle = fsMDIChild
   OldCreateOrder = False
   Visible = True
+  WindowState = wsMaximized
   PixelsPerInch = 96
   TextHeight = 13
   object DBGrid1: TDBGrid
@@ -21,6 +24,8 @@ object frmAtendimentos: TfrmAtendimentos
     Width = 754
     Height = 477
     Align = alBottom
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    DataSource = dsAtendimentos
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -56,8 +61,7 @@ object frmAtendimentos: TfrmAtendimentos
     Left = 680
   end
   object ActionListAtend: TActionList
-    Left = 552
-    Top = 8
+    Left = 592
     object actNovo: TAction
       Caption = 'Novo'
     end

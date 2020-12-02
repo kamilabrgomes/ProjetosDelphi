@@ -1,6 +1,8 @@
 object frmPrincipal: TfrmPrincipal
   Left = 0
   Top = 0
+  Align = alClient
+  AutoSize = True
   Caption = 'Atendimentos'
   ClientHeight = 350
   ClientWidth = 652
@@ -13,15 +15,18 @@ object frmPrincipal: TfrmPrincipal
   FormStyle = fsMDIForm
   Menu = MainMenu1
   OldCreateOrder = False
+  Position = poScreenCenter
+  WindowState = wsMaximized
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object MainMenu1: TMainMenu
-    Left = 568
+    Left = 488
     Top = 8
     object Clientes1: TMenuItem
       Caption = 'Atendimentos'
       object Novo1: TMenuItem
-        Action = actNovoAtend
+        Action = actCadAtend
       end
     end
     object Clientes2: TMenuItem
@@ -38,9 +43,9 @@ object frmPrincipal: TfrmPrincipal
       Caption = 'Cadastro'
       OnExecute = actCadPacienteExecute
     end
-    object actNovoAtend: TAction
-      Caption = 'Novo'
-      OnExecute = actNovoAtendExecute
+    object actCadAtend: TAction
+      Caption = 'Atendimentos'
+      OnExecute = actCadAtendExecute
     end
   end
 end

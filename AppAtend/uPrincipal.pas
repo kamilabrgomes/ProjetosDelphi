@@ -5,8 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Data.DB, System.Actions,
-  Vcl.ActnList, Vcl.Grids, Vcl.DBGrids, uCadPaciente, uAtendimento
-  ;
+  Vcl.ActnList, Vcl.Grids, Vcl.DBGrids, uCadPaciente, uCadAtendimento,
+  Data.Win.ADODB, Vcl.StdCtrls, uConexao, uSistemaController;
 
 type
   TfrmPrincipal = class(TForm)
@@ -17,9 +17,11 @@ type
     Novo1: TMenuItem;
     ActionListPrincipal: TActionList;
     actCadPaciente: TAction;
-    actNovoAtend: TAction;
+    actCadAtend: TAction;
     procedure actCadPacienteExecute(Sender: TObject);
-    procedure actNovoAtendExecute(Sender: TObject);
+    procedure actCadAtendExecute(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+
   private
     { Private declarations }
   public
@@ -36,13 +38,27 @@ implementation
 procedure TfrmPrincipal.actCadPacienteExecute(Sender: TObject);
 begin
   Application.CreateForm(TfrmCadPaciente, frmCadPaciente);
-  frmCadPaciente.Show;
+  try
+    frmCadPaciente.ShowModal;
+  finally
+    frmCadPaciente.Release;
+  end;
 end;
 
-procedure TfrmPrincipal.actNovoAtendExecute(Sender: TObject);
+procedure TfrmPrincipal.FormCreate(Sender: TObject);
 begin
-  Application.CreateForm(TfrmAtendimentos, frmAtendimentos);
-  frmAtendimentos.Show;
+  TSistemaController.GetInstancia();
+
+end;
+
+procedure TfrmPrincipal.actCadAtendExecute(Sender: TObject);
+begin
+  Application.CreateForm(TfrmCadAtendimentos, frmCadAtendimentos);
+  try
+    frmCadAtendimentos.ShowModal;
+  finally
+    frmCadAtendimentos.Release;
+  end;
 end;
 
 end.
