@@ -10,24 +10,37 @@ object frmPrincipal: TfrmPrincipal
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  FormStyle = fsMDIForm
   Menu = MainMenu1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
   object MainMenu1: TMainMenu
-    Left = 584
-    Top = 48
+    Left = 568
+    Top = 8
     object Clientes1: TMenuItem
       Caption = 'Atendimentos'
       object Novo1: TMenuItem
-        Caption = 'Novo'
+        Action = actNovoAtend
       end
     end
     object Clientes2: TMenuItem
       Caption = 'Clientes'
       object Cadastro1: TMenuItem
-        Caption = 'Cadastro'
+        Action = actCadPaciente
       end
+    end
+  end
+  object ActionListPrincipal: TActionList
+    Left = 408
+    Top = 8
+    object actCadPaciente: TAction
+      Caption = 'Cadastro'
+      OnExecute = actCadPacienteExecute
+    end
+    object actNovoAtend: TAction
+      Caption = 'Novo'
+      OnExecute = actNovoAtendExecute
     end
   end
 end
