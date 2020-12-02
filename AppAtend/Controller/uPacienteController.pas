@@ -26,7 +26,7 @@ implementation
 
 constructor TPacienteController.Create;
 begin
-  FPacienteModel := TPacienteModel.Create;
+  FPacienteModel := TPacienteModel.Create();
 end;
 
 destructor TPacienteController.Destroy;
@@ -36,12 +36,7 @@ begin
   inherited;
 end;
 
-function TPacienteController.GetId(AAutoIncrementar: Integer): Integer;
-begin
-  Result := FPacienteModel.GetId(AAutoIncrementar);
-end;
-
-function TPacienteController.Obter: TFDQuery;
+function TPacienteController.Obter: TADOQuery;
 begin
   Result := FPacienteModel.Obter;
 end;
