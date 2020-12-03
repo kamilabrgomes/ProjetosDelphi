@@ -36,9 +36,9 @@ begin
   inherited;
 end;
 
-function TPacienteController.Obter: TADOQuery;
+function TPacienteController.GetPacienteController: TADOQuery;
 begin
-  Result := FPacienteModel.Obter;
+  Result := FPacienteModel.GetPaciente;
 end;
 
 function TPacienteController.Salvar: Boolean;

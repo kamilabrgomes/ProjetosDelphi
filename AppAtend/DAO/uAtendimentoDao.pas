@@ -15,7 +15,7 @@ type
       function Alterar(AAtendimentoModel: TAtendimentoModel): Boolean;
       function Excluir(AAtendimentoModel: TAtendimentoModel): Boolean;
       function GetId(AAutoIncrementar: Integer): Integer;
-      function Obter: TADOQuery;
+      function GetAtendimentos: TADOQuery;
   end;
 
 implementation
@@ -30,8 +30,10 @@ var
 begin
   VQry := FConexao.CriarQry();
   try
+    VQry.Close;
+    VQry.SQL.Clear;
     VQry.SQL.add('update Atendimento set Descricao = '+QuotedStr(AAtendimentoModel.Descricao)+' where (IDAtend = '+IntToStr(AAtendimentoModel.IDAtend)+')');
-    VQry.ExecSQL;
+    VQry.Open;
 
     Result := True;
   finally
@@ -51,8 +53,10 @@ var
 begin
   VQry := FConexao.CriarQry();
   try
+    VQry.Close;
+    VQry.SQL.Clear;
     VQry.SQL.add('delete from Atendimento where (IDAtend = '+IntToStr(AAtendimentoModel.IDAtend)+')');
-    VQry.ExecSQL;
+    VQry.Open;
 
     Result := True;
   finally
@@ -66,6 +70,8 @@ var
 begin
   VQry := FConexao.CriarQry();
   try
+    VQry.Close;
+    VQry.SQL.Clear;
     VQry.SQL.add('select gen_id(gen_cliente_id, ' + IntToStr(AAutoIncrementar) + ' ) from rdb$database');
     VQry.Open;
     try
@@ -83,9 +89,19 @@ begin
 
 end;
 
-function TAtendimentoDao.Obter: TADOQuery;
+function TAtendimentoDao.GetAtendimentos: TADOQuery;
+var
+  VQry: TADOQuery;
 begin
 
-end;
+  VQry := FConexao.CriarQry();
 
+  VQry.Close;
+  VQry.SQL.Clear;
+  VQry.SQL.Add('select IDAtend, DtAtend, CPFPaciente, Descricao from Atendimento order by 1');
+  VQry.Open;
+
+  Result := VQry;
+
+end;
 end.

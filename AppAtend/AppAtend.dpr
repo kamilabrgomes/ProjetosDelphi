@@ -12,7 +12,8 @@ uses
   uPacienteDao in 'DAO\uPacienteDao.pas',
   uAtendimentoDao in 'DAO\uAtendimentoDao.pas',
   uPacienteController in 'Controller\uPacienteController.pas',
-  uTipos in 'Model\uTipos.pas';
+  uTipos in 'Model\uTipos.pas',
+  uAtendimentoController in 'Controller\uAtendimentoController.pas';
 
 {$R *.res}
 

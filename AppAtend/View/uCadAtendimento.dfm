@@ -1,8 +1,6 @@
 object frmCadAtendimentos: TfrmCadAtendimentos
   Left = 0
   Top = 0
-  Align = alClient
-  AutoSize = True
   Caption = 'Atendimentos'
   ClientHeight = 517
   ClientWidth = 754
@@ -12,10 +10,9 @@ object frmCadAtendimentos: TfrmCadAtendimentos
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  FormStyle = fsMDIChild
   OldCreateOrder = False
-  Visible = True
-  WindowState = wsMaximized
+  Position = poScreenCenter
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object DBGrid1: TDBGrid

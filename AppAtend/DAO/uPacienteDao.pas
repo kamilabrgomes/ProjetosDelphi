@@ -30,6 +30,7 @@ var
 begin
   VQry := FConexao.CriarQry();
   try
+    VQry.SQL.Clear;
     VQry.SQL.add('update Paciente set Nome = '+QuotedStr(APacienteModel.Nome)+' where (CPF = '+QuotedStr(APacienteModel.CPF)+')');
     VQry.ExecSQL;
 
@@ -51,6 +52,7 @@ var
 begin
   VQry := FConexao.CriarQry();
   try
+    VQry.SQL.Clear;
     VQry.SQL.add('delete from Paciente where (CPF = '+QuotedStr(APacienteModel.CPF)+')');
     VQry.ExecSQL;
 
@@ -66,6 +68,7 @@ var
 begin
   VQry := FConexao.CriarQry();
   try
+    VQry.SQL.Clear;
     VQry.SQL.Add('insert into Paciente (CPF, Nome, DtNasc, Sexo) values ('+QuotedStr(APacienteModel.CPF)+','+
                                                                            QuotedStr(APacienteModel.Nome)+','+
                                                                            QuotedStr(DateToStr(APacienteModel.DtNasc))+','+
@@ -83,8 +86,11 @@ function TPacienteDao.GetPacientes: TADOQuery;
 var
   VQry: TADOQuery;
 begin
+
   VQry := FConexao.CriarQry();
 
+  VQry.Close;
+  VQry.SQL.Clear;
   VQry.SQL.Add('select CPF, Nome, DtNasc, Sexo from Paciente order by 1');
   VQry.Open;
 

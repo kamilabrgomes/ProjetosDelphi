@@ -33,6 +33,7 @@ begin
   ADOConnection.Provider         := CONECT_FILE;
   ADOConnection.KeepConnection   := True;
   ADOConnection.LoginPrompt      := False;
+  ADOConnection.Connected        := True;
 
 end;
 
@@ -49,6 +50,7 @@ var
 begin
   VQry := TADOQuery.Create(nil);
   VQry.Connection := ADOConnection;
+
 
   result := VQry;
 end;

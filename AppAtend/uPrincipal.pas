@@ -50,6 +50,7 @@ procedure TfrmPrincipal.FormCreate(Sender: TObject);
 begin
   TSistemaController.GetInstancia();
 
+
 end;
 
 procedure TfrmPrincipal.actCadAtendExecute(Sender: TObject);
