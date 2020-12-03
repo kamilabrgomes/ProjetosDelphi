@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Data.DB, System.Actions,
   Vcl.ActnList, Vcl.Grids, Vcl.DBGrids, uCadPaciente, uCadAtendimento,
-  Data.Win.ADODB, Vcl.StdCtrls, uConexao, uSistemaController;
+  Data.Win.ADODB, Vcl.StdCtrls, uConexao, uSistemaController, Vcl.ComCtrls;
 
 type
   TfrmPrincipal = class(TForm)
@@ -18,6 +18,7 @@ type
     ActionListPrincipal: TActionList;
     actCadPaciente: TAction;
     actCadAtend: TAction;
+    StatusBar1: TStatusBar;
     procedure actCadPacienteExecute(Sender: TObject);
     procedure actCadAtendExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);

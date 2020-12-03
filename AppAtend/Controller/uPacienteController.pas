@@ -15,7 +15,7 @@ type
     destructor Destroy; override;
 
     function Salvar: Boolean;
-    function Obter: TADOQuery;
+    function GetPacienteController: TADOQuery;
 
     property PacienteModel: TPacienteModel read FPacienteModel write FPacienteModel;
   end;

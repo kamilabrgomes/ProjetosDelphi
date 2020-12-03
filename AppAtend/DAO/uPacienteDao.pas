@@ -14,7 +14,7 @@ type
       function Incluir(APacienteModel: TPacienteModel): Boolean;
       function Alterar(APacienteModel: TPacienteModel): Boolean;
       function Excluir(APacienteModel: TPacienteModel): Boolean;
-      function Obter: TADOQuery;
+      function GetPacientes: TADOQuery;
   end;
 
 implementation
@@ -79,7 +79,7 @@ begin
   end;
 end;
 
-function TPacienteDao.Obter: TADOQuery;
+function TPacienteDao.GetPacientes: TADOQuery;
 var
   VQry: TADOQuery;
 begin

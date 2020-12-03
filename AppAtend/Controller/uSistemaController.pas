@@ -8,7 +8,6 @@ type
   TSistemaController = class
     private
       FConexao : TConexao;
-      FPaciente: TPacienteModel;
 
       class var FInstancia: TSistemaController;
     public
@@ -17,7 +16,6 @@ type
       class function GetInstancia : TSistemaController;
 
       property Conexao : TConexao read FConexao write FConexao;
-      property Paciente: TPacienteModel read FPaciente write FPaciente;
   end;
 implementation
 
@@ -26,13 +24,11 @@ implementation
 constructor TSistemaController.Create;
 begin
   FConexao := TConexao.Create;
-  //FPaciente := TPacienteModel.Create();
 
 end;
 
 destructor TSistemaController.Destroy;
 begin
-  FPaciente.Free;
   FConexao.Free;
   inherited;
 end;

@@ -20,6 +20,16 @@ object frmPrincipal: TfrmPrincipal
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object StatusBar1: TStatusBar
+    Left = 0
+    Top = 331
+    Width = 652
+    Height = 19
+    Panels = <>
+    ExplicitLeft = 528
+    ExplicitTop = 304
+    ExplicitWidth = 0
+  end
   object MainMenu1: TMainMenu
     Left = 488
     Top = 8
